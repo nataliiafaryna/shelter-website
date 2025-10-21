@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Допомога - Притулок "PawDay"</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- 🔹 ХЕДЕР -->
+  <header class="site-header">
+    <div class="header-left">
+      <img src="images/logo.png" alt="Лого притулку" class="logo">
+      <nav>
+        <a href="index.html">Головна</a>
+        <a href="walk.html">Вигул собак</a>
+        <a href="donate.html" class="active">Допомога</a>
+        <a href="#footer">Контакти</a>
+      </nav>
+    </div>
+    <h1 class="site-name">Притулок "PawDay"</h1>
+  </header>
+
+  <!-- 🔹 ОСНОВНИЙ КОНТЕНТ -->
+  <main>
+    <section class="hero">
+      <div class="about-box">
+        <h2>Як допомогти</h2>
+        <div class="scroll-text">
+          Ви можете підтримати наших хвостиків кількома способами:<br><br>
+          🐾 <b>Фінансово</b> — зробіть донат на розвиток притулку, корм та ліки для тварин.<br><br>
+          🦴 <b>Матеріально</b> — принесіть корм, ковдри, іграшки або інші речі, які зроблять життя тварин комфортнішим.<br><br>
+          💛 <b>Волонтерство</b> — допомагайте вигулювати собак, спілкуйтесь із ними, допомагайте на заходах.<br><br>
+          📣 <b>Поширення інформації</b> — розкажіть друзям про притулок, поділіться нашими публікаціями.<br><br>
+          Разом ми можемо подарувати кожній собаці тепло, турботу і дім. 💕
+        </div>
+      </div>
+
+      <div class="hero-text">
+        <div class="help-photo">
+    <img src="images/donatepage.jpg" alt="Собаки з притулку, які чекають допомоги">
+      </div>
+    </section>
+
+    <!-- 🔹 ПАНЕЛЬ З ЛАПКАМИ -->
+<section class="paw-banner">
+  <div class="paw-overlay">
+    <h2>Разом ми змінюємо життя хвостиків^^</h2>
+    <p>Долучайся — кожна лапка важлива!</p>
+    <a href="https://send.monobank.ua/jar/your-bank-link" target="_blank" class="banner-btn support-btn">Підтримати зараз</a>
+  </div>
+</section>
+
+<section class="treats-section">
+  <h3>Подаруй песику смаколик!</h3>
+  <div class="treat-buttons">
+    <button class="treat-btn" data-amount="50">🐾 Маленький смаколик — 50 грн</button>
+    <button class="treat-btn" data-amount="100">🦴 Великий смаколик — 100 грн</button>
+    <button class="treat-btn" data-amount="200">💛 Обід для хвостика — 200 грн</button>
+  </div>
+  <p id="treat-message" class="treat-message"></p>
+</section>
+<script>
+  const buttons = document.querySelectorAll('.treat-btn');
+  const msg = document.getElementById('treat-message');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const amount = btn.dataset.amount;
+      msg.textContent = `Дякуємо! Ви подарували песику смаколик за ${amount} грн 🐶💛`;
+      msg.classList.add('show');
+
+      // через 2 секунди — перехід на банку
+      setTimeout(() => {
+        window.open('https://send.monobank.ua/jar/your-bank-link', '_blank');
+        msg.classList.remove('show');
+      }, 2000);
+    });
+  });
+</script>
+
+<script>
+  const supportBtn = document.querySelector('.support-btn');
+
+  supportBtn.addEventListener('click', e => {
+    e.preventDefault();
+    const heart = document.createElement('span');
+    heart.classList.add('floating-heart');
+    heart.textContent = '💛';
+    document.body.appendChild(heart);
+
+    const x = e.clientX;
+    const y = e.clientY;
+    heart.style.left = `${x}px`;
+    heart.style.top = `${y}px`;
+
+    setTimeout(() => heart.remove(), 1500);
+
+    // відкриваємо банку після затримки
+    setTimeout(() => {
+      window.open('https://send.monobank.ua/jar/your-bank-link', '_blank');
+    }, 500);
+  });
+</script>
+
+<style>
+.floating-heart {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  animation: floatUp 1.5s ease-out forwards;
+  font-size: 28px;
+  pointer-events: none;
+  z-index: 200;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -150px) scale(1.5);
+  }
+}
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const textBar = document.querySelector(".text-bar-content");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          textBar.classList.add("visible");
+        }
+      });
+    });
+    observer.observe(textBar);
+  });
+</script>
+
+  <img src="images/Vector.png" alt="лапка" class="paw paw-13">
+  <img src="images/vector.png" alt="лапка" class="paw paw-23">
+  <img src="images/vector.png" alt="лапка" class="paw paw-33">
+  <img src="images/Vector2.png" alt="лапка" class="paw paw-43">
+  <img src="images/vector.png" alt="лапка" class="paw paw-53">
+  <img src="images/Vector2.png" alt="лапка" class="paw paw-63">
+  <img src="images/Vector2.png" alt="лапка" class="paw paw-73">
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  const aboutSection = document.getElementById('about');
+  const paws = document.querySelectorAll('.paw-about');
+
+  if (!aboutSection) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // додаємо клас visible до лапок
+        paws.forEach((p, i) => {
+          // додаємо невелику затримку для кожної лапки
+          setTimeout(() => p.classList.add('visible'), i * 120);
+        });
+        obs.unobserve(aboutSection); // анімацію запускаємо 1 раз
+      }
+    });
+  }, { threshold: 0.35 }); // коли 35% секції в полі зору
+
+  observer.observe(aboutSection);
+});
+</script>
+
+
+
+  <!-- 🔹 ФУТЕР -->
+  <footer class="footer" id="footer">
+    <p class="footer-address">місто Київ, вулиця Прикладна, 12</p>
+    <p class="footer-phone">+380 хх&nbsp;&nbsp;ххх хх хх</p>
+    <p class="footer-instagram">@pawday</p>
+  </footer>
+
+</body>
+</html>
